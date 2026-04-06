@@ -1,0 +1,17 @@
+{
+  "name": "angular-demo",
+  "projectType": "application",
+  "root": "apps/angular-demo",
+  "sourceRoot": "apps/angular-demo/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/angular-demo",
+        "main": "apps/angular-demo/src/main.ts",
+        "tsConfig": "apps/angular-demo/tsconfig.json"
+      }
+    }
+  }
+}

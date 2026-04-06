@@ -1,0 +1,24 @@
+{
+  "name": "tokens",
+  "projectType": "library",
+  "root": "libs/tokens",
+  "sourceRoot": "libs/tokens/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/tokens",
+        "main": "libs/tokens/src/index.ts",
+        "tsConfig": "libs/tokens/tsconfig.json",
+        "assets": [
+          {
+            "input": "libs/tokens/src",
+            "glob": "**/*.css",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}

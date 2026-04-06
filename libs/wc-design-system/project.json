@@ -1,0 +1,17 @@
+{
+  "name": "wc-design-system",
+  "projectType": "library",
+  "root": "libs/wc-design-system",
+  "sourceRoot": "libs/wc-design-system/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/wc-design-system",
+        "main": "libs/wc-design-system/src/index.ts",
+        "tsConfig": "libs/wc-design-system/tsconfig.json"
+      }
+    }
+  }
+}

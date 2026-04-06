@@ -1,0 +1,17 @@
+{
+  "name": "ng-design-system",
+  "projectType": "library",
+  "root": "libs/ng-design-system",
+  "sourceRoot": "libs/ng-design-system/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/ng-design-system",
+        "main": "libs/ng-design-system/src/index.ts",
+        "tsConfig": "libs/ng-design-system/tsconfig.json"
+      }
+    }
+  }
+}

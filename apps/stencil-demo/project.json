@@ -1,0 +1,23 @@
+{
+  "name": "stencil-demo",
+  "projectType": "application",
+  "root": "apps/stencil-demo",
+  "sourceRoot": "apps/stencil-demo",
+  "targets": {
+    "serve": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "stencil-demo:build",
+        "staticFilePath": "apps/stencil-demo",
+        "port": 4202
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "echo 'Static HTML - no build needed'",
+        "cwd": "apps/stencil-demo"
+      }
+    }
+  }
+}

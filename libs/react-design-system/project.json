@@ -1,0 +1,30 @@
+{
+  "name": "react-design-system",
+  "projectType": "library",
+  "root": "libs/react-design-system",
+  "sourceRoot": "libs/react-design-system/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/react-design-system",
+        "configFile": "libs/react-design-system/vite.config.ts"
+      }
+    },
+    "storybook": {
+      "executor": "@nx/storybook:storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/react-design-system/.storybook"
+      }
+    },
+    "build-storybook": {
+      "executor": "@nx/storybook:build",
+      "options": {
+        "outputPath": "dist/storybook/react-design-system",
+        "configDir": "libs/react-design-system/.storybook"
+      }
+    }
+  }
+}
