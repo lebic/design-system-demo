@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022",
+    "lib": ["ES2022", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@design-system/tokens": ["libs/tokens/src/index.ts"],
+      "@design-system/utils": ["shared/utils/src/index.ts"],
+      "@design-system/react": ["libs/react-design-system/src/index.ts"],
+      "@design-system/ng": ["libs/ng-design-system/src/index.ts"],
+      "@design-system/vue": ["libs/vue-design-system/src/index.ts"],
+      "@design-system/wc": ["libs/wc-design-system/src/index.ts"]
+    },
+    "jsx": "react-jsx",
+    "strict": true
+  },
+  "exclude": ["node_modules", "tmp"]
+}

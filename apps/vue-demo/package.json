@@ -1,0 +1,12 @@
+{
+  "name": "vue-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@design-system/vue": "*",
+    "@design-system/tokens": "*",
+    "@design-system/utils": "*",
+    "vue": "^3.4.0"
+  }
+}

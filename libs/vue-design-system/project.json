@@ -1,0 +1,16 @@
+{
+  "name": "vue-design-system",
+  "projectType": "library",
+  "root": "libs/vue-design-system",
+  "sourceRoot": "libs/vue-design-system/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/vue-design-system",
+        "configFile": "libs/vue-design-system/vite.config.ts"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+
+.nx/installation
+.nx/cache
+.nx/workspace-data
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.angular/
+
+# Storybook builds
+storybook-static/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# npm lock files in subdirectories (keep root one)
+apps/*/package-lock.json
+libs/*/package-lock.json
+shared/*/package-lock.json
