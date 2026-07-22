@@ -1,0 +1,42 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ds-white: #ffffff;
+  --ds-black: #000000;
+  --ds-slate-50: #f8fafc;
+  --ds-slate-200: #e2e8f0;
+  --ds-slate-300: #cbd5e1;
+  --ds-slate-400: #94a3b8;
+  --ds-slate-500: #64748b;
+  --ds-slate-600: #475569;
+  --ds-slate-700: #334155;
+  --ds-slate-800: #1e293b;
+  --ds-slate-900: #0f172a;
+  --ds-blue-400: #60a5fa;
+  --ds-blue-500: #3b82f6;
+  --ds-blue-600: #2563eb;
+  --ds-green-500: #22c55e;
+  --ds-green-600: #16a34a;
+  --ds-amber-500: #f59e0b;
+  --ds-amber-600: #d97706;
+  --ds-red-500: #ef4444;
+  --ds-red-600: #dc2626;
+  --ds-radius-0: 0px;
+  --ds-radius-1: 4px;
+  --ds-radius-2: 6px;
+  --ds-radius-3: 8px;
+  --ds-radius-full: 9999px;
+  --ds-space-xs: 0.25rem;
+  --ds-space-sm: 0.5rem;
+  --ds-space-md: 1rem;
+  --ds-space-lg: 1.5rem;
+  --ds-space-xl: 2rem;
+  --ds-font-xs: 0.75rem;
+  --ds-font-sm: 0.875rem;
+  --ds-font-md: 1rem;
+  --ds-font-lg: 1.125rem;
+  --ds-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --ds-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}

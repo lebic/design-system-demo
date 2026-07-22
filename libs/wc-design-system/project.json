@@ -1,6 +1,7 @@
 {
   "name": "wc-design-system",
   "projectType": "library",
+  "tags": ["type:ui"],
   "root": "libs/wc-design-system",
   "sourceRoot": "libs/wc-design-system/src",
   "targets": {

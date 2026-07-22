@@ -17,6 +17,8 @@
     "paths": {
       "@design-system/tokens": ["libs/tokens/src/index.ts"],
       "@design-system/utils": ["shared/utils/src/index.ts"],
+      "@design-system/types": ["shared/types/src/index.ts"],
+      "@design-system/recipes": ["shared/recipes/src/index.ts"],
       "@design-system/react": ["libs/react-design-system/src/index.ts"],
       "@design-system/ng": ["libs/ng-design-system/src/index.ts"],
       "@design-system/vue": ["libs/vue-design-system/src/index.ts"],

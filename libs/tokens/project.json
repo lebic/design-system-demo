@@ -3,9 +3,24 @@
   "projectType": "library",
   "root": "libs/tokens",
   "sourceRoot": "libs/tokens/src",
+  "tags": ["type:tokens"],
   "targets": {
+    "generate": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/src/design/**/*.json",
+        "{projectRoot}/build.mjs"
+      ],
+      "outputs": ["{projectRoot}/src/generated"],
+      "options": {
+        "command": "node libs/tokens/build.mjs",
+        "cwd": "{workspaceRoot}"
+      }
+    },
     "build": {
       "executor": "@nx/js:tsc",
+      "dependsOn": ["generate"],
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/tokens",

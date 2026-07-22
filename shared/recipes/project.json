@@ -1,0 +1,18 @@
+{
+  "name": "recipes",
+  "projectType": "library",
+  "root": "shared/recipes",
+  "sourceRoot": "shared/recipes/src",
+  "tags": ["type:recipe"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/shared/recipes",
+        "main": "shared/recipes/src/index.ts",
+        "tsConfig": "shared/recipes/tsconfig.json"
+      }
+    }
+  }
+}

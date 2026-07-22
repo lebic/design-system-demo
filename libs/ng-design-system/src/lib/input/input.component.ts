@@ -7,9 +7,10 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { inputRecipe, fieldLabel, fieldHelp, fieldError } from '@design-system/recipes';
+import type { InputVariant, InputSize } from '@design-system/types';
 
-export type InputVariant = 'default' | 'error' | 'success';
-export type InputSize = 'sm' | 'md' | 'lg';
+export type { InputVariant, InputSize } from '@design-system/types';
 
 @Component({
   selector: 'ds-input',
@@ -25,7 +26,7 @@ export type InputSize = 'sm' | 'md' | 'lg';
   template: `
     <div class="flex flex-col gap-1.5">
       @if (label) {
-        <label [for]="inputId" class="text-[var(--font-size-sm)] font-medium text-[var(--text)]">{{ label }}</label>
+        <label [for]="inputId" [class]="labelClass">{{ label }}</label>
       }
       <input
         [id]="inputId"
@@ -42,7 +43,7 @@ export type InputSize = 'sm' | 'md' | 'lg';
       @if (errorMessage || helperText) {
         <p
           [id]="inputId + '-desc'"
-          [class]="errorMessage ? 'text-[var(--font-size-sm)] text-[var(--color-error)]' : 'text-[var(--font-size-sm)] text-[var(--text-muted)]'"
+          [class]="errorMessage ? errorClass : helpClass"
           [attr.role]="errorMessage ? 'alert' : null"
         >
           {{ errorMessage || helperText }}
@@ -93,21 +94,14 @@ export class InputComponent implements ControlValueAccessor {
     this.errorMessage || this.helperText ? `${this.inputId}-desc` : null
   );
 
-  private readonly variantStyles = {
-    default: 'border-[var(--border-color)] focus:border-[var(--color-primary)] focus:ring-[var(--color-primary)]',
-    error: 'border-[var(--color-error)] focus:border-[var(--color-error)] focus:ring-[var(--color-error)] text-[var(--color-error)]',
-    success: 'border-[var(--color-success)] focus:border-[var(--color-success)] focus:ring-[var(--color-success)]',
-  };
+  readonly labelClass = fieldLabel;
+  readonly helpClass = fieldHelp;
+  readonly errorClass = fieldError;
 
-  private readonly sizeStyles = {
-    sm: 'px-3 py-1.5 text-[var(--font-size-sm)]',
-    md: 'px-3 py-2 text-[var(--font-size-md)]',
-    lg: 'px-4 py-3 text-[var(--font-size-lg)]',
-  };
-
-  classes = computed(() => {
-    const resolvedVariant = this.errorMessage ? 'error' : this.variant;
-    const base = 'block w-full rounded-md border bg-[var(--bg)] text-[var(--text)] placeholder:text-[var(--text-muted)] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50';
-    return `${base} ${this.variantStyles[resolvedVariant]} ${this.sizeStyles[this.size]}`;
-  });
+  classes(): string {
+    return inputRecipe({
+      variant: this.errorMessage ? 'error' : this.variant,
+      size: this.size,
+    });
+  }
 }

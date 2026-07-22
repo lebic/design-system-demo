@@ -1,0 +1,38 @@
+/**
+ * Tailwind v4 theme bridge — maps semantic tokens to the utility vocabulary.
+ *
+ * `@theme inline` makes each utility REFERENCE the semantic var instead of
+ * copying its value, so utilities react at runtime when a [data-brand] /
+ * [data-theme] block remaps the underlying --sem-* variable.
+ *
+ *   --color-action  → bg-action / text-action / ring-action / border-action
+ *   --radius-control → rounded-control
+ *
+ * This file is the design-system's public Tailwind API; edit deliberately.
+ */
+@theme inline {
+  --color-action: var(--sem-color-action-bg);
+  --color-action-hover: var(--sem-color-action-bg-hover);
+  --color-on-action: var(--sem-color-action-fg);
+
+  --color-secondary: var(--sem-color-secondary-bg);
+  --color-secondary-hover: var(--sem-color-secondary-bg-hover);
+  --color-on-secondary: var(--sem-color-secondary-fg);
+
+  --color-success: var(--sem-color-success-bg);
+  --color-on-success: var(--sem-color-success-fg);
+  --color-warning: var(--sem-color-warning-bg);
+  --color-on-warning: var(--sem-color-warning-fg);
+  --color-danger: var(--sem-color-danger-bg);
+  --color-danger-hover: var(--sem-color-danger-bg-hover);
+  --color-on-danger: var(--sem-color-danger-fg);
+
+  --color-surface: var(--sem-color-surface);
+  --color-surface-muted: var(--sem-color-surface-muted);
+  --color-fg: var(--sem-color-fg);
+  --color-fg-muted: var(--sem-color-fg-muted);
+  --color-line: var(--sem-color-line);
+
+  --radius-control: var(--sem-radius-control);
+  --radius-surface: var(--sem-radius-surface);
+}

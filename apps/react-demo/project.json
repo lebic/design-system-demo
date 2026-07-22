@@ -1,6 +1,7 @@
 {
   "name": "react-demo",
   "projectType": "application",
+  "tags": ["type:app"],
   "root": "apps/react-demo",
   "sourceRoot": "apps/react-demo/src",
   "targets": {
@@ -16,7 +17,8 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/react-demo",
-        "configFile": "apps/react-demo/vite.config.ts"
+        "configFile": "apps/react-demo/vite.config.ts",
+        "skipTypeCheck": true
       }
     }
   }

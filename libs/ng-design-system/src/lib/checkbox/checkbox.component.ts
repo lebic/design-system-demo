@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { checkboxRecipe, checkboxLabel, fieldHelp } from '@design-system/recipes';
 
 @Component({
   selector: 'ds-checkbox',
@@ -23,7 +24,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
   ],
   template: `
     <div class="flex flex-col gap-1">
-      <label [for]="inputId" class="inline-flex items-center gap-2 cursor-pointer select-none text-[var(--text)]">
+      <label [for]="inputId" [class]="labelClass">
         <input
           [id]="inputId"
           type="checkbox"
@@ -31,14 +32,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
           [disabled]="disabled"
           [attr.aria-describedby]="helperText ? inputId + '-helper' : null"
           (change)="onChange($event)"
-          class="h-4 w-4 rounded border-[var(--border-color)] accent-[var(--color-primary)] focus:ring-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-50"
+          [class]="controlClass"
         />
         @if (label) {
-          <span class="text-[var(--font-size-md)]">{{ label }}</span>
+          <span class="text-base">{{ label }}</span>
         }
       </label>
       @if (helperText) {
-        <p [id]="inputId + '-helper'" class="text-[var(--font-size-sm)] text-[var(--text-muted)] ml-6">{{ helperText }}</p>
+        <p [id]="inputId + '-helper'" [class]="helpClass">{{ helperText }}</p>
       }
     </div>
   `,
@@ -48,6 +49,10 @@ export class CheckboxComponent implements ControlValueAccessor {
   @Input() helperText = '';
   @Input() inputId = `ds-checkbox-${Math.random().toString(36).slice(2, 9)}`;
   @Input() disabled = false;
+
+  readonly labelClass = checkboxLabel;
+  readonly controlClass = checkboxRecipe();
+  readonly helpClass = `${fieldHelp} ml-6`;
 
   value = signal(false);
 

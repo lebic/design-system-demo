@@ -5,6 +5,7 @@ import {
   useRef,
   type InputHTMLAttributes,
 } from 'react';
+import { checkboxRecipe, checkboxLabel, fieldHelp } from '@design-system/recipes';
 import { cn } from '@design-system/utils';
 
 export interface CheckboxProps
@@ -30,34 +31,19 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
     return (
       <div className="flex flex-col gap-1">
-        <label
-          htmlFor={id}
-          className="inline-flex items-center gap-2 cursor-pointer select-none text-[var(--text)]"
-        >
+        <label htmlFor={id} className={checkboxLabel}>
           <input
             ref={resolvedRef}
             type="checkbox"
             id={id}
-            className={cn(
-              'h-4 w-4 rounded border-[var(--border-color)]',
-              'text-[var(--color-primary)]',
-              'focus:ring-[var(--color-primary)] focus:ring-offset-0',
-              'disabled:cursor-not-allowed disabled:opacity-50',
-              'accent-[var(--color-primary)]',
-              className
-            )}
+            className={cn(checkboxRecipe(), className)}
             aria-describedby={helperText ? `${id}-helper` : undefined}
             {...props}
           />
-          {label && (
-            <span className="text-[var(--font-size-md)]">{label}</span>
-          )}
+          {label && <span className="text-base">{label}</span>}
         </label>
         {helperText && (
-          <p
-            id={`${id}-helper`}
-            className="text-[var(--font-size-sm)] text-[var(--text-muted)] ml-6"
-          >
+          <p id={`${id}-helper`} className={cn(fieldHelp, 'ml-6')}>
             {helperText}
           </p>
         )}

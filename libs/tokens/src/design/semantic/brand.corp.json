@@ -1,0 +1,13 @@
+{
+  "sem": {
+    "color": {
+      "action": {
+        "bg":       { "$value": "{ds.slate.900}", "$type": "color" },
+        "bg-hover": { "$value": "{ds.slate.700}", "$type": "color" }
+      }
+    },
+    "radius": {
+      "control": { "$value": "{ds.radius.0}", "$type": "dimension" }
+    }
+  }
+}

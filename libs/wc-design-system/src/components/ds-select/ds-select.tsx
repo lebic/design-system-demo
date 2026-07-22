@@ -1,12 +1,8 @@
 import { Component, Prop, h, Event, EventEmitter } from '@stencil/core';
+import { selectRecipe, fieldLabel, fieldHelp, fieldError } from '@design-system/recipes';
+import type { SelectSize, SelectOption } from '@design-system/types';
 
-export type SelectSize = 'sm' | 'md' | 'lg';
-
-export interface SelectOption {
-  value: string;
-  label: string;
-  disabled?: boolean;
-}
+export type { SelectSize, SelectOption } from '@design-system/types';
 
 @Component({
   tag: 'ds-select',
@@ -25,27 +21,13 @@ export class DsSelect {
 
   @Event() dsChange!: EventEmitter<string>;
 
-  private get sizeClass(): string {
-    const map: Record<SelectSize, string> = {
-      sm: 'pl-3 pr-8 py-1.5 text-[var(--font-size-sm)]',
-      md: 'pl-3 pr-8 py-2 text-[var(--font-size-md)]',
-      lg: 'pl-4 pr-8 py-3 text-[var(--font-size-lg)]',
-    };
-    return map[this.size];
-  }
-
   render() {
-    const variantClass = this.errorMessage
-      ? 'border-[var(--color-error)] focus:border-[var(--color-error)] focus:ring-[var(--color-error)]'
-      : 'border-[var(--border-color)] focus:border-[var(--color-primary)] focus:ring-[var(--color-primary)]';
-    const baseClass =
-      'block w-full rounded-md border bg-[var(--bg)] text-[var(--text)] appearance-none cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50';
     const descId = this.errorMessage || this.helperText ? `${this.inputId}-desc` : undefined;
 
     return (
       <div class="flex flex-col gap-1.5">
         {this.label && (
-          <label htmlFor={this.inputId} class="text-[var(--font-size-sm)] font-medium text-[var(--text)]">
+          <label htmlFor={this.inputId} class={fieldLabel}>
             {this.label}
           </label>
         )}
@@ -53,7 +35,10 @@ export class DsSelect {
           id={this.inputId}
           value={this.value}
           disabled={this.disabled}
-          class={`${baseClass} ${variantClass} ${this.sizeClass}`}
+          class={selectRecipe({
+            variant: this.errorMessage ? 'error' : 'default',
+            size: this.size,
+          })}
           aria-invalid={this.errorMessage ? 'true' : undefined}
           aria-describedby={descId}
           onChange={(e: Event) => {
@@ -72,11 +57,7 @@ export class DsSelect {
         {(this.errorMessage || this.helperText) && (
           <p
             id={descId}
-            class={
-              this.errorMessage
-                ? 'text-[var(--font-size-sm)] text-[var(--color-error)]'
-                : 'text-[var(--font-size-sm)] text-[var(--text-muted)]'
-            }
+            class={this.errorMessage ? fieldError : fieldHelp}
             role={this.errorMessage ? 'alert' : undefined}
           >
             {this.errorMessage || this.helperText}
