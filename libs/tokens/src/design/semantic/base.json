@@ -1,0 +1,38 @@
+{
+  "sem": {
+    "color": {
+      "action": {
+        "bg":       { "$value": "{ds.blue.500}", "$type": "color" },
+        "bg-hover": { "$value": "{ds.blue.600}", "$type": "color" },
+        "fg":       { "$value": "{ds.white}",    "$type": "color" }
+      },
+      "secondary": {
+        "bg":       { "$value": "{ds.slate.500}", "$type": "color" },
+        "bg-hover": { "$value": "{ds.slate.600}", "$type": "color" },
+        "fg":       { "$value": "{ds.white}",     "$type": "color" }
+      },
+      "success": {
+        "bg": { "$value": "{ds.green.500}", "$type": "color" },
+        "fg": { "$value": "{ds.white}",     "$type": "color" }
+      },
+      "warning": {
+        "bg": { "$value": "{ds.amber.500}", "$type": "color" },
+        "fg": { "$value": "{ds.white}",     "$type": "color" }
+      },
+      "danger": {
+        "bg":       { "$value": "{ds.red.500}", "$type": "color" },
+        "bg-hover": { "$value": "{ds.red.600}", "$type": "color" },
+        "fg":       { "$value": "{ds.white}",   "$type": "color" }
+      },
+      "surface":        { "$value": "{ds.white}",     "$type": "color" },
+      "surface-muted":  { "$value": "{ds.slate.50}",  "$type": "color" },
+      "fg":             { "$value": "{ds.slate.900}", "$type": "color" },
+      "fg-muted":       { "$value": "{ds.slate.400}", "$type": "color" },
+      "line":           { "$value": "{ds.slate.200}", "$type": "color" }
+    },
+    "radius": {
+      "control": { "$value": "{ds.radius.2}", "$type": "dimension" },
+      "surface": { "$value": "{ds.radius.3}", "$type": "dimension" }
+    }
+  }
+}

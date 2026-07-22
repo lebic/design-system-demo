@@ -1,6 +1,7 @@
 {
   "name": "react-design-system",
   "projectType": "library",
+  "tags": ["type:ui"],
   "root": "libs/react-design-system",
   "sourceRoot": "libs/react-design-system/src",
   "targets": {

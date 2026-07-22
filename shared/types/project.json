@@ -1,0 +1,18 @@
+{
+  "name": "types",
+  "projectType": "library",
+  "root": "shared/types",
+  "sourceRoot": "shared/types/src",
+  "tags": ["type:types"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/shared/types",
+        "main": "shared/types/src/index.ts",
+        "tsConfig": "shared/types/tsconfig.json"
+      }
+    }
+  }
+}

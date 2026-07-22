@@ -1,0 +1,15 @@
+{
+  "sem": {
+    "color": {
+      "surface":       { "$value": "{ds.slate.900}", "$type": "color" },
+      "surface-muted": { "$value": "{ds.slate.800}", "$type": "color" },
+      "fg":            { "$value": "{ds.slate.50}",  "$type": "color" },
+      "fg-muted":      { "$value": "{ds.slate.500}", "$type": "color" },
+      "line":          { "$value": "{ds.slate.700}", "$type": "color" },
+      "action": {
+        "bg":       { "$value": "{ds.blue.400}", "$type": "color" },
+        "bg-hover": { "$value": "{ds.blue.500}", "$type": "color" }
+      }
+    }
+  }
+}

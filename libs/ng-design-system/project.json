@@ -1,6 +1,7 @@
 {
   "name": "ng-design-system",
   "projectType": "library",
+  "tags": ["type:ui"],
   "root": "libs/ng-design-system",
   "sourceRoot": "libs/ng-design-system/src",
   "targets": {

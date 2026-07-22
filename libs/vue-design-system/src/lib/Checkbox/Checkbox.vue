@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+import { cn } from '@design-system/utils';
+import { checkboxRecipe, checkboxLabel, fieldHelp } from '@design-system/recipes';
 
 const props = withDefaults(
   defineProps<{
@@ -24,6 +26,9 @@ const emit = defineEmits<{ 'update:modelValue': [value: boolean] }>();
 const inputRef = ref<HTMLInputElement | null>(null);
 const inputId = props.id ?? `ds-checkbox-${Math.random().toString(36).slice(2, 9)}`;
 
+const controlClass = checkboxRecipe();
+const helpClass = cn(fieldHelp, 'ml-6');
+
 watch(
   () => props.indeterminate,
   (val) => {
@@ -41,7 +46,7 @@ function onChange(event: Event) {
 
 <template>
   <div class="flex flex-col gap-1">
-    <label :for="inputId" class="inline-flex items-center gap-2 cursor-pointer select-none text-[var(--text)]">
+    <label :for="inputId" :class="checkboxLabel">
       <input
         ref="inputRef"
         :id="inputId"
@@ -49,16 +54,12 @@ function onChange(event: Event) {
         :checked="modelValue"
         :disabled="disabled"
         :aria-describedby="helperText ? inputId + '-helper' : undefined"
-        class="h-4 w-4 rounded border-[var(--border-color)] accent-[var(--color-primary)] focus:ring-[var(--color-primary)] disabled:cursor-not-allowed disabled:opacity-50"
+        :class="controlClass"
         @change="onChange"
       />
-      <span v-if="label" class="text-[var(--font-size-md)]">{{ label }}</span>
+      <span v-if="label" class="text-base">{{ label }}</span>
     </label>
-    <p
-      v-if="helperText"
-      :id="inputId + '-helper'"
-      class="text-[var(--font-size-sm)] text-[var(--text-muted)] ml-6"
-    >
+    <p v-if="helperText" :id="inputId + '-helper'" :class="helpClass">
       {{ helperText }}
     </p>
   </div>

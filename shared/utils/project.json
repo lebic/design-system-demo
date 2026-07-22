@@ -1,6 +1,7 @@
 {
   "name": "utils",
   "projectType": "library",
+  "tags": ["type:util"],
   "root": "shared/utils",
   "sourceRoot": "shared/utils/src",
   "targets": {

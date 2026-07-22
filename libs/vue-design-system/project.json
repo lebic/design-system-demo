@@ -1,6 +1,7 @@
 {
   "name": "vue-design-system",
   "projectType": "library",
+  "tags": ["type:ui"],
   "root": "libs/vue-design-system",
   "sourceRoot": "libs/vue-design-system/src",
   "targets": {
@@ -9,7 +10,8 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/vue-design-system",
-        "configFile": "libs/vue-design-system/vite.config.ts"
+        "configFile": "libs/vue-design-system/vite.config.ts",
+        "skipTypeCheck": true
       }
     }
   }

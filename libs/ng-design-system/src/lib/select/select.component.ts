@@ -7,14 +7,10 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/forms';
+import { selectRecipe, fieldLabel, fieldHelp, fieldError } from '@design-system/recipes';
+import type { SelectSize, SelectOption } from '@design-system/types';
 
-export type SelectSize = 'sm' | 'md' | 'lg';
-
-export interface SelectOption {
-  value: string;
-  label: string;
-  disabled?: boolean;
-}
+export type { SelectSize, SelectOption } from '@design-system/types';
 
 @Component({
   selector: 'ds-select',
@@ -30,7 +26,7 @@ export interface SelectOption {
   template: `
     <div class="flex flex-col gap-1.5">
       @if (label) {
-        <label [for]="inputId" class="text-[var(--font-size-sm)] font-medium text-[var(--text)]">{{ label }}</label>
+        <label [for]="inputId" [class]="labelClass">{{ label }}</label>
       }
       <select
         [id]="inputId"
@@ -52,7 +48,7 @@ export interface SelectOption {
       @if (errorMessage || helperText) {
         <p
           [id]="inputId + '-desc'"
-          [class]="errorMessage ? 'text-[var(--font-size-sm)] text-[var(--color-error)]' : 'text-[var(--font-size-sm)] text-[var(--text-muted)]'"
+          [class]="errorMessage ? errorClass : helpClass"
           [attr.role]="errorMessage ? 'alert' : null"
         >
           {{ errorMessage || helperText }}
@@ -103,17 +99,14 @@ export class SelectComponent implements ControlValueAccessor {
     this.errorMessage || this.helperText ? `${this.inputId}-desc` : null
   );
 
-  private readonly sizeStyles = {
-    sm: 'pl-3 pr-8 py-1.5 text-[var(--font-size-sm)]',
-    md: 'pl-3 pr-8 py-2 text-[var(--font-size-md)]',
-    lg: 'pl-4 pr-8 py-3 text-[var(--font-size-lg)]',
-  };
+  readonly labelClass = fieldLabel;
+  readonly helpClass = fieldHelp;
+  readonly errorClass = fieldError;
 
-  classes = computed(() => {
-    const variantStyle = this.errorMessage
-      ? 'border-[var(--color-error)] focus:border-[var(--color-error)] focus:ring-[var(--color-error)]'
-      : 'border-[var(--border-color)] focus:border-[var(--color-primary)] focus:ring-[var(--color-primary)]';
-    const base = 'block w-full rounded-md border bg-[var(--bg)] text-[var(--text)] appearance-none cursor-pointer transition-colors focus:outline-none focus:ring-2 focus:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50';
-    return `${base} ${variantStyle} ${this.sizeStyles[this.size]}`;
-  });
+  classes(): string {
+    return selectRecipe({
+      variant: this.errorMessage ? 'error' : 'default',
+      size: this.size,
+    });
+  }
 }

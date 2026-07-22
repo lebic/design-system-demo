@@ -1,6 +1,7 @@
 {
   "name": "stencil-demo",
   "projectType": "application",
+  "tags": ["type:app"],
   "root": "apps/stencil-demo",
   "sourceRoot": "apps/stencil-demo",
   "targets": {

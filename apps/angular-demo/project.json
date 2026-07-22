@@ -1,6 +1,7 @@
 {
   "name": "angular-demo",
   "projectType": "application",
+  "tags": ["type:app"],
   "root": "apps/angular-demo",
   "sourceRoot": "apps/angular-demo/src",
   "targets": {
